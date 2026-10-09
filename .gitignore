@@ -1,0 +1,15 @@
+# Models & Weights
+*.pt
+*.onnx
+runs/
+
+# Large Datasets
+dataset_450/
+dataset_450_yolo/
+dataset_450_yolo_improved/
+
+# Python Cache & IDE
+__pycache__/
+.idea/
+.vscode/
+*.pyc

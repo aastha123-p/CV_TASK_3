@@ -1,0 +1,21 @@
+ID,Image,Ground Truth,Predictions,Error Score,Root Cause
+1,aug_946_a679da_jpg.rf.51fc0be665c05fc9641180f03ecea0c4.jpg,"rust, rust, rust",None,11.0,class confusion
+2,aug_1109_324653_jpg.rf.73ee8306303048d1131024945edaded0.jpg,"Leak, Leak",None,9.0,missed small object
+3,aug_683_6e894b_jpg.rf.af5e887688535b591aef59d3f435388b.jpg,"Leak, Leak",None,9.0,class confusion
+4,aug_354_51c1ce_jpg.rf.f17202e75d43775fee0867055d98b410.jpg,"rust, rust, rust, rust, rust",rust,8.0,label error
+5,aug_1045_3cfd43_jpg.rf.190642681592a5cb7127b14cc08dde67.jpg,Leak,None,7.0,background false positive
+6,aug_1172_d7bc7a_jpg.rf.83f2f5c3b70e1f846bc7ef6c6a5c9d51.jpg,rust,None,7.0,missed small object
+7,aug_1227_582a68_jpg.rf.2af7a830b6d0fb2f6a501a4b4027e42f.jpg,rust,None,7.0,occlusion
+8,aug_1498_30ba5d_jpg.rf.3c59a4e0e2094125798a627c44b98d91.jpg,Hole,None,7.0,class confusion
+9,aug_1739_06d7d5_jpg.rf.905b911b0f02d9ecd04d6fc3c5cb2ce6.jpg,rust,None,7.0,label error
+10,aug_1770_848f38_jpg.rf.c0e0493afc2b27bd9baa33d652b81ea3.jpg,Hole,None,7.0,missed small object
+11,aug_468_d93cf4_jpg.rf.456139aeefaf0d8cddedb6a2922009be.jpg,Leak,None,7.0,class confusion
+12,aug_826_2de0f7_jpg.rf.26c155ede901427d997b95c4e9a536f7.jpg,rust,None,7.0,background false positive
+13,burst_augment_74_rotated315_jpg.rf.198ce5f0faf41038f17d6fef7d0bfb06.jpg,Hole,None,7.0,missed small object
+14,burst_augment_74_rotated45_jpg.rf.a35c3d0e5e03057df0ed74b4187ea59e.jpg,Hole,None,7.0,occlusion
+15,dccba67165553915_jpg.rf.a619b90a275e54e29a3864fa4b438bed.jpg,Leak,None,7.0,class confusion
+16,pipeline-crack_jpg.rf.b5de3ce7511af3c0e041f1b64937134f.jpg,Hole,None,7.0,label error
+17,verizon-corrosion_jpg.rf.333974c2266cd7bd52f0e6b9b0f530bc.jpg,Hole,None,7.0,background false positive
+18,aug_1580_912e6b_jpg.rf.296918609064a4ee69653529d2e94355.jpg,"rust, rust","Hole, rust, rust",6.5,missed small object
+19,aug_1393_a475ff_jpg.rf.e17ebdb08558266cc699253c2164b710.jpg,Leak,"Leak, Leak, Leak",6.0,class confusion
+20,hull041_jpg.rf.fdece1ded0603f88949a7b136fb6b6d4.jpg,"rust, rust","rust, Hole",4.5,occlusion

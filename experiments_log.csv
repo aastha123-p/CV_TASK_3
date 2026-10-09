@@ -1,0 +1,4 @@
+Experiment ID,Variable Changed,Baseline Value,New Value,Target Root Cause,Precision,Recall,Overall mAP50,Overall mAP50-95,Leak mAP50
+Exp_1_HighRes,Image Resolution (imgsz=800),imgsz=640,imgsz=800,class confusion & missed small object,0.6720,0.5120,0.5340,0.2310,0.2680
+Exp_2_ModelCapacity,Model Backbone Architecture (yolov8s.pt),yolov8n.pt (Nano 3.0M),yolov8s.pt (Small 11.2M),class confusion (capacity bottleneck),0.6910,0.5280,0.5480,0.2420,0.2850
+Exp_3_ClsLossBoost,Classification Loss Gain (cls=2.5),cls=1.5,cls=2.5,class confusion (misclassification penalty),0.6580,0.5310,0.5290,0.2280,0.2790

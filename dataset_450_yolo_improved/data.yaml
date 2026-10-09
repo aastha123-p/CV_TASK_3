@@ -1,0 +1,6 @@
+train: C:/Users/Desktop/TASK3/dataset_450_yolo_improved/train/images
+val: C:/Users/Desktop/TASK3/dataset_450_yolo_improved/valid/images
+test: C:/Users/Desktop/TASK3/dataset_450_yolo_improved/test/images
+
+nc: 3
+names: ['Hole', 'Leak', 'rust']

@@ -1,0 +1,62 @@
+================================================================================
+IMPROVED MODEL EVALUATION & STRATEGY VERIFICATION REPORT
+================================================================================
+
+1. EXPERIMENTAL SETUP & IMPROVEMENTS APPLIED
+--------------------------------------------------------------------------------
+Training Script: train_improved.py
+Model Architecture: YOLOv8n (yolov8n.pt)
+Output Path: runs/yolov8n_improved
+Evaluation Dataset: dataset_450_yolo_improved/valid (67 images, 88 instances)
+
+Applied Improvement Strategies:
+1. Targeted Augmentations:
+   - HSV-Saturation gain (hsv_s=0.8) and HSV-Value gain (hsv_v=0.6) to decouple 
+     liquid sheen and moisture discoloration from background pipe metal.
+   - Mixup (0.15) and Copy-Paste (0.3) augmentations to assist in learning diffuse 
+     non-rigid boundaries of liquid trails.
+   - Full spatial jittering: degrees=15.0, translate=0.1, scale=0.5, shear=2.0.
+
+2. Loss Function Adjustment:
+   - Classification loss weight boosted to cls=1.5 (3x over baseline default 0.5) 
+     to directly penalize misclassifications and address the severe Leak recall drop.
+
+3. Oversampling & Data Balancing:
+   - Dataset oversampled: Images containing Leak labels were duplicated in the 
+     training manifest, expanding training images from 316 to 429 images.
+
+
+2. SIDE-BY-SIDE METRICS COMPARISON (BASELINE VS IMPROVED)
+--------------------------------------------------------------------------------
+Metric Scope               Baseline mAP50   Improved mAP50   Delta (mAP50)   Baseline Recall   Improved Recall
+--------------------------------------------------------------------------------
+Overall (All Classes)              0.4240           0.5170         +0.0930 (+9.3%)         0.3787            0.4930
+Hole (Class 0)                     0.7230           0.6970         -0.0260                 0.6670            0.6670
+rust (Class 2)                     0.4670           0.6160         +0.1490 (+14.9%)        0.3790            0.5390
+Leak (Class 1) [WEAKEST]           0.0826           0.2400         +0.1574 (+15.7%)        0.0909            0.2730
+--------------------------------------------------------------------------------
+
+Detailed Metrics for Improved Model (runs/yolov8n_improved/weights/best.pt):
+- Overall mAP50: 0.5170 (51.7%)
+- Overall mAP50-95: 0.2210 (22.1%)
+- Overall Precision: 0.6620
+- Overall Recall: 0.4930
+
+Per-Class Breakdown (Improved Model):
+- Hole (Class 0): Precision = 0.7710, Recall = 0.6670, mAP50 = 0.6970, mAP50-95 = 0.2840
+- rust (Class 2): Precision = 0.8500, Recall = 0.5390, mAP50 = 0.6160, mAP50-95 = 0.2950
+- Leak (Class 1): Precision = 0.3640, Recall = 0.2730, mAP50 = 0.2400, mAP50-95 = 0.0840
+
+
+3. ANALYSIS OF IMPROVEMENTS
+--------------------------------------------------------------------------------
+- Weakest Class (Leak) Recovery:
+  - mAP50 improved by ~3x from 0.0826 (8.26%) to 0.2400 (24.00%).
+  - Recall improved by 3x from 0.0909 (9.1%) to 0.2730 (27.3%).
+  - mAP50-95 increased by ~3.6x from 0.0231 (2.31%) to 0.0840 (8.40%).
+
+- Overall Model Performance:
+  - Overall mAP50 improved from 0.4240 to 0.5170 (+9.3 percentage points).
+  - Overall Recall increased from 0.3787 to 0.4930 (+11.4 percentage points).
+  - Class rust saw significant gain from 0.4670 to 0.6160 mAP50.
+================================================================================
